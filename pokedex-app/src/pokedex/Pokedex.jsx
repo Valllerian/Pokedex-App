@@ -8,7 +8,8 @@ const Pokedex = () => {
   const [experienceTeamTwo, setExperienceTeamTwo] = useState(0);
   const [draw, setDraw] = useState(false);
   const [teamOneWin, setTeamOneWin] = useState(false);
-  const [teamTeoWin, setTeamTwoWin] = useState(false);
+  const [teamTwoWin, setTeamTwoWin] = useState(false);
+  // const [readyToFight, setReadyToFight] = useState(false);
 
   const calculatePower = (e) => {
     e.preventDefault();
@@ -16,12 +17,15 @@ const Pokedex = () => {
     document.getElementById("btnTeam2").click()
     if(experienceTeamOne == experienceTeamTwo){
       setDraw(true)
+      // setReadyToFight(true)
     };
     if(experienceTeamOne > experienceTeamTwo){
       setTeamOneWin(true);
+      // setReadyToFight(true)
     }
     if(experienceTeamTwo > experienceTeamOne){
       setTeamTwoWin(true);
+      // setReadyToFight(true)
     }
   }
 
@@ -98,7 +102,7 @@ const Pokedex = () => {
   return (
     <div>
       <div>
-        <p>Hi</p>
+        <p>{draw ? (<p>It`s a DRAW!</p>) : teamOneWin ? (<p> Team one WON!</p>) : teamTwoWin ? (<p>Team one LOST</p>): null}</p>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
@@ -118,7 +122,7 @@ const Pokedex = () => {
         </div>
       </div>
       <div>
-      <p>Hi</p>
+      <p>{draw ? (<p>It`s a DRAW!</p>) : teamOneWin ? (<p> Team one WON!</p>) : teamTwoWin ? (<p>Team one LOST</p>): null}</p>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
