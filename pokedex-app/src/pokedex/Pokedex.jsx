@@ -24,17 +24,17 @@ const Pokedex = () => {
   const fight = () => {
     if (experienceTeamOne == experienceTeamTwo) {
       setDraw(true);
-      console.log("It is a draw!")
+      console.log("It is a draw!");
       // setReadyToFight(true)
     }
     if (experienceTeamOne > experienceTeamTwo) {
       setTeamOneWin(true);
-      console.log("Team One won!")
+      console.log("Team One won!");
       // setReadyToFight(true)
     }
     if (experienceTeamTwo > experienceTeamOne) {
       setTeamTwoWin(true);
-      console.log("Team Two won!")
+      console.log("Team Two won!");
       // setReadyToFight(true)
     }
   };
@@ -111,17 +111,11 @@ const Pokedex = () => {
   return (
     <div>
       <div>
-        <p>
-        {draw ? (
-            <p>It`s a DRAW!</p>
-          )  : null}
-          {teamOneWin ? (
-            <p> Team One WON!</p>
-          )  : null}
-          {teamTwoWin ? (
-            <p> Team Two WON!</p>
-          )  : null}
-        </p>
+        <h3>
+          {draw ? <p>It`s a DRAW!</p> : null}
+          {teamOneWin ? <p> Team One WON!</p> : null}
+          {teamTwoWin ? <p> Team One LOST!</p> : null}
+        </h3>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
@@ -141,17 +135,11 @@ const Pokedex = () => {
         </div>
       </div>
       <div>
-        <p>
-          {draw ? (
-            <p>It`s a DRAW!</p>
-          )  : null}
-          {teamOneWin ? (
-            <p> Team One WON!</p>
-          )  : null}
-          {teamTwoWin ? (
-            <p> Team Two WON!</p>
-          )  : null}
-        </p>
+        <h3>
+          {draw ? <p>It`s a DRAW!</p> : null}
+          {teamOneWin ? <p> Team Two LOST!</p> : null}
+          {teamTwoWin ? <p> Team Two WON!</p> : null}
+        </h3>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
