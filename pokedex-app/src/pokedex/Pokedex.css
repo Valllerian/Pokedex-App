@@ -5,3 +5,11 @@
 flex: 33.33%;
   padding: 5px;
 }
+
+#btnTeam1{
+    display:none;
+}
+
+#btnTeam2{
+    display:none;
+}
