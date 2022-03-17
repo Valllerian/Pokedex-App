@@ -1,11 +1,11 @@
 import React, { Children } from "react";
 import Pokecard from "../pokecard/Pokecard";
 import "./Pokedex.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Pokedex = () => {
-  const [experienceTeamOne, setExperienceTeamOne] = useState(0);
-  const [experienceTeamTwo, setExperienceTeamTwo] = useState(0);
+  const [experienceTeamOne, setExperienceTeamOne] = useState();
+  const [experienceTeamTwo, setExperienceTeamTwo] = useState();
   const [draw, setDraw] = useState(false);
   const [teamOneWin, setTeamOneWin] = useState(false);
   const [teamTwoWin, setTeamTwoWin] = useState(false);
@@ -13,15 +13,18 @@ const Pokedex = () => {
 
   const calculatePower = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     document.getElementById("btnTeam1").click();
     document.getElementById("btnTeam2").click();
     setDraw(false);
     setTeamOneWin(false);
     setTeamTwoWin(false);
     fight();
+    
   };
 
   const fight = () => {
+  
     if (experienceTeamOne == experienceTeamTwo) {
       setDraw(true);
       console.log("It is a draw!");
@@ -37,10 +40,11 @@ const Pokedex = () => {
       console.log("Team Two won!");
       // setReadyToFight(true)
     }
+    
   };
 
   const calculateExpTeam1 = (e) => {
-    e.preventDefault();
+    e.stopPropagation();
     let mainElement =
       e.currentTarget.previousElementSibling.children[0].children[0].getAttribute(
         "data-id"
@@ -67,13 +71,13 @@ const Pokedex = () => {
     let totalExp =
       Number(mainElement) + Number(exp2) + Number(exp3) + Number(exp4);
     setExperienceTeamOne(totalExp);
-
+    e.preventDefault();
     // setExperienceTeamOne(mainElement + exp2 + exp3 + exp4)
     // console.log("This is EXP sum: " + experienceTeamOne)
   };
 
   const calculateExpTeam2 = (e) => {
-    e.preventDefault();
+    e.stopPropagation();
     let mainElement =
       e.currentTarget.previousElementSibling.children[0].children[0].getAttribute(
         "data-id"
@@ -99,15 +103,13 @@ const Pokedex = () => {
 
     let totalExp =
       Number(mainElement) + Number(exp2) + Number(exp3) + Number(exp4);
-    setExp2(totalExp);
-
+      setExperienceTeamTwo(totalExp);
+    e.preventDefault();
     // setExperienceTeamOne(mainElement + exp2 + exp3 + exp4)
     // console.log("This is EXP sum: " + experienceTeamOne)
   };
 
-  const setExp2 = (totalExp) => {
-    setExperienceTeamTwo(totalExp);
-  };
+ 
   return (
     <div>
       <div>
@@ -129,7 +131,7 @@ const Pokedex = () => {
           <div className="column">
             <Pokecard />
           </div>
-          <button id="btnTeam1" onClick={(e) => calculateExpTeam1(e)}>
+          <button id="btnTeam1" onClick={(e) => {e.preventDefault();calculateExpTeam1(e)}}>
             Calculate Exp
           </button>
         </div>
@@ -153,13 +155,13 @@ const Pokedex = () => {
           <div className="column">
             <Pokecard />
           </div>
-          <button id="btnTeam2" onClick={(e) => calculateExpTeam2(e)}>
+          <button id="btnTeam2" onClick={(e) => {e.preventDefault();calculateExpTeam2(e)}}>
             Calculate Exp
           </button>
         </div>
       </div>
       <div>
-        <button id="btnTeam3" onClick={(e) => calculatePower(e)}>
+        <button id="btnTeam3"  onClick={(e) => {e.preventDefault();calculatePower(e)}}>
           Calculate Power and Fight!
         </button>
       </div>
