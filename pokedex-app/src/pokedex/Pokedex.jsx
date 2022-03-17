@@ -13,22 +13,31 @@ const Pokedex = () => {
 
   const calculatePower = (e) => {
     e.preventDefault();
-    document.getElementById("btnTeam1").click()
-    document.getElementById("btnTeam2").click()
-    if(experienceTeamOne == experienceTeamTwo){
-      setDraw(true)
-      // setReadyToFight(true)
-    };
-    if(experienceTeamOne > experienceTeamTwo){
-      setTeamOneWin(true);
-      // setReadyToFight(true)
-    }
-    if(experienceTeamTwo > experienceTeamOne){
-      setTeamTwoWin(true);
-      // setReadyToFight(true)
-    }
-  }
+    document.getElementById("btnTeam1").click();
+    document.getElementById("btnTeam2").click();
+    setDraw(false);
+    setTeamOneWin(false);
+    setTeamTwoWin(false);
+    fight();
+  };
 
+  const fight = () => {
+    if (experienceTeamOne == experienceTeamTwo) {
+      setDraw(true);
+      console.log("It is a draw!")
+      // setReadyToFight(true)
+    }
+    if (experienceTeamOne > experienceTeamTwo) {
+      setTeamOneWin(true);
+      console.log("Team One won!")
+      // setReadyToFight(true)
+    }
+    if (experienceTeamTwo > experienceTeamOne) {
+      setTeamTwoWin(true);
+      console.log("Team Two won!")
+      // setReadyToFight(true)
+    }
+  };
 
   const calculateExpTeam1 = (e) => {
     e.preventDefault();
@@ -58,7 +67,7 @@ const Pokedex = () => {
     let totalExp =
       Number(mainElement) + Number(exp2) + Number(exp3) + Number(exp4);
     setExperienceTeamOne(totalExp);
-    console.log("Team 1 total EXP: " + experienceTeamOne);
+
     // setExperienceTeamOne(mainElement + exp2 + exp3 + exp4)
     // console.log("This is EXP sum: " + experienceTeamOne)
   };
@@ -91,7 +100,7 @@ const Pokedex = () => {
     let totalExp =
       Number(mainElement) + Number(exp2) + Number(exp3) + Number(exp4);
     setExp2(totalExp);
-    console.log("Team 2 total EXP: " + experienceTeamTwo);
+
     // setExperienceTeamOne(mainElement + exp2 + exp3 + exp4)
     // console.log("This is EXP sum: " + experienceTeamOne)
   };
@@ -102,7 +111,17 @@ const Pokedex = () => {
   return (
     <div>
       <div>
-        <p>{draw ? (<p>It`s a DRAW!</p>) : teamOneWin ? (<p> Team one WON!</p>) : teamTwoWin ? (<p>Team one LOST</p>): null}</p>
+        <p>
+        {draw ? (
+            <p>It`s a DRAW!</p>
+          )  : null}
+          {teamOneWin ? (
+            <p> Team One WON!</p>
+          )  : null}
+          {teamTwoWin ? (
+            <p> Team Two WON!</p>
+          )  : null}
+        </p>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
@@ -122,7 +141,17 @@ const Pokedex = () => {
         </div>
       </div>
       <div>
-      <p>{draw ? (<p>It`s a DRAW!</p>) : teamOneWin ? (<p> Team one WON!</p>) : teamTwoWin ? (<p>Team one LOST</p>): null}</p>
+        <p>
+          {draw ? (
+            <p>It`s a DRAW!</p>
+          )  : null}
+          {teamOneWin ? (
+            <p> Team One WON!</p>
+          )  : null}
+          {teamTwoWin ? (
+            <p> Team Two WON!</p>
+          )  : null}
+        </p>
         <div className="Pokedex">
           <div className="column">
             <Pokecard />
@@ -142,9 +171,9 @@ const Pokedex = () => {
         </div>
       </div>
       <div>
-      <button id="btnTeam3" onClick={(e) => calculatePower(e)}>
-            Calculate Power and Fight!
-          </button>
+        <button id="btnTeam3" onClick={(e) => calculatePower(e)}>
+          Calculate Power and Fight!
+        </button>
       </div>
     </div>
   );
