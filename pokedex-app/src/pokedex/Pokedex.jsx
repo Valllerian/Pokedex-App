@@ -1,18 +1,16 @@
-import React from "react";
+import React, { Children } from "react";
 import Pokecard from "../pokecard/Pokecard";
 import "./Pokedex.css";
+import { useState } from "react";
 
 const Pokedex = () => {
-  let pokemons = [
-    { id: 4, name: "Charmander", type: "fire", base_experience: 62 },
-    { id: 7, name: "Squitle", type: "water", base_experience: 63 },
-    { id: 11, name: "Metapod", type: "bug", base_experience: 72 },
-    { id: 12, name: "Buttlefree", type: "flying", base_experience: 178 },
-    { id: 25, name: "Pikachu", type: "electric", base_experience: 112 },
-    { id: 39, name: "Jigglypuff", type: "normal", base_experience: 95 },
-    { id: 94, name: "Gengar", type: "poison", base_experience: 225 },
-    { id: 133, name: "Eevee", type: "normal", base_experience: 65 },
-  ];
+
+  const [experienceTeamOne, setExperienceTeamOne] = useState(0);
+  const [experienceTeamTwo, setExperienceTeamTwo] = useState(0);
+  
+ const calculateExp = (e) => {
+  console.log(e.currentTarget.previousElementSibling.children[0].children[0].getAttribute("data-id"))
+  }
 
   return (
     <div>
@@ -30,6 +28,7 @@ const Pokedex = () => {
           <div className="column">
             <Pokecard />
           </div>
+          <button>Calculate Exp</button>
         </div>
       </div>
       <div>
@@ -46,6 +45,7 @@ const Pokedex = () => {
           <div className="column">
             <Pokecard />
           </div>
+          <button id="btn" onClick={calculateExp}>Calculate Exp</button>
         </div>
       </div>
     </div>

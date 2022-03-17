@@ -16,7 +16,7 @@ const Pokecard = () => {
 
   return (
     <div>
-      <div>
+      <div data-id={randomiser.base_experience}>
           <p>{randomiser.name}</p>
           <img className="Pokemon-img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomiser.id}.png`} alt="pokemon image"/>
           <p>Type: {randomiser.type}</p>
