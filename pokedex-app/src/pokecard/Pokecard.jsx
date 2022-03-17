@@ -1,4 +1,5 @@
 import React from 'react'
+import './Pokecard.css'
 
 const Pokecard = () => {
   let pokemons = [
@@ -17,7 +18,7 @@ const Pokecard = () => {
     <div>
       <div>
           <p>{randomiser.name}</p>
-          <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomiser.id}.png`} alt="pokemon image"/>
+          <img className="Pokemon-img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomiser.id}.png`} alt="pokemon image"/>
           <p>Type: {randomiser.type}</p>
           <p>EXP: {randomiser.base_experience}</p>
         </div>

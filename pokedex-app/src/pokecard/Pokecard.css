@@ -1,0 +1,4 @@
+.Pokemon-img:hover{
+    transform: scale(1.75); 
+    transition-duration: 1s;
+}
