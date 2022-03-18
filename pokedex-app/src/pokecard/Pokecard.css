@@ -2,3 +2,13 @@
     transform: scale(1.75); 
     transition-duration: 1s;
 }
+
+.Pokecard {
+    background-color: azure;
+    border: rgb(80, 79, 79) 2px solid;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 100px;
+    margin-top: 20px;
+}
+

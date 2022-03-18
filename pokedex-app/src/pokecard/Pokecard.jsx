@@ -23,8 +23,8 @@ const Pokecard = (props) => {
   }, []);
 
   return (
-    <div>
-      <div data-id={randomiser.base_experience}>
+    <div className="Pokecard">
+      <div >
         <p>{randomiser.name}</p>
         <img
           className="Pokemon-img"
