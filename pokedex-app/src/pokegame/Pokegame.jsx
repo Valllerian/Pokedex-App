@@ -17,7 +17,7 @@ const Pokegame = () => {
       <div className="Pokegame-results">
         {expTeamOne > expTeamTwo ? <h1> Team One Won!</h1> : null}
         {expTeamOne < expTeamTwo ? <h1> Team Two Won!</h1> : null}
-        {expTeamOne == expTeamTwo ? <h1> It is a draw!</h1> : null}
+        {expTeamOne === expTeamTwo ? <h1> It is a draw!</h1> : null}
       </div>
       <div className={expTeamOne > expTeamTwo ? "winner-up" : "loser-up"}>
         <Pokedex  setTest={(test) => setExpTeamOne(test)} />
