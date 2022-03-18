@@ -15,13 +15,11 @@ const[totalExp, setTotalExp] = useState(0)
 const [test, setTest] = useState(0)
 
 useEffect(() => {
-  setTotalExp(expCard1 + expCard2 + expCard3 + expCard4)
-  props.setTest(totalExp)
+  // setTotalExp(expCard1 + expCard2 + expCard3 + expCard4)
+  props.setTest(expCard1 + expCard2 + expCard3 + expCard4)
 }, [expCard1, expCard2, expCard3, expCard4])
 
-console.log(totalExp)
 
-// console.log(totalExp)
   return (
     <div>
       <div>
