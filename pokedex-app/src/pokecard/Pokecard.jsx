@@ -3,7 +3,8 @@ import './Pokecard.css'
 import { useState, useEffect } from "react";
 
 const Pokecard = (props) => {
-
+  
+  const [exp, setExp] = useState(0)
 
   const  pokemons = [
     {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
@@ -18,11 +19,9 @@ const Pokecard = (props) => {
 
   let randomiser = pokemons[Math.floor(Math.random()*pokemons.length)];
 
-
 useEffect(() => {
-  props.Changedata(randomiser.base_experience)
+  props.setExp(randomiser.base_experience)
 }, [])
-
 
 
   
