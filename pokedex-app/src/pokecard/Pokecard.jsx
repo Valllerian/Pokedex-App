@@ -1,8 +1,11 @@
 import React from 'react'
 import './Pokecard.css'
+import { useState, useEffect } from "react";
 
-const Pokecard = () => {
-  let pokemons = [
+const Pokecard = (props) => {
+
+
+  const  pokemons = [
     {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
     {id: 7, name: 'Squitle', type: 'water', base_experience: 63},
     {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
@@ -12,10 +15,19 @@ const Pokecard = () => {
     {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
     {id: 133, name: 'Eevee', type: 'normal', base_experience: 65},
   ]
+
   let randomiser = pokemons[Math.floor(Math.random()*pokemons.length)];
 
+
+useEffect(() => {
+  props.Changedata(randomiser.base_experience)
+}, [])
+
+
+
+  
   return (
-    <div>
+      <div>
       <div data-id={randomiser.base_experience}>
           <p>{randomiser.name}</p>
           <img className="Pokemon-img" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${randomiser.id}.png`} alt="pokemon image"/>
@@ -23,6 +35,7 @@ const Pokecard = () => {
           <p>EXP: {randomiser.base_experience}</p>
         </div>
     </div>
+    
   )
 }
 
