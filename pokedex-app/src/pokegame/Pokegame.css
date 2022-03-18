@@ -1,7 +1,31 @@
-body{
+body {
     background: lightgrey;
 }
 
+.Pokegame-results{
+    margin-bottom: 100px;
+    font-size: 25px;
+}
+
 .Pokegame-button {
-    margin-top: 20px;
+    margin-top: 100px;
+    padding:20px;
+    font-size: 25px;
+}
+
+.winner-up {
+    box-shadow: -10px -20px 5px green;
+}
+
+.winner-down {
+    box-shadow: 10px 20px 5px green;
+}
+
+
+.loser-down {
+    box-shadow: 10px 20px 5px red;
+}
+
+.loser-up {
+    box-shadow: -10px -20px 5px red;
 }

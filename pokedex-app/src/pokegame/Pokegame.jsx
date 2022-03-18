@@ -14,15 +14,15 @@ const Pokegame = () => {
   }
   return (
     <div>
-      <div>
+      <div className="Pokegame-results">
         {expTeamOne > expTeamTwo ? <h1> Team One Won!</h1> : null}
         {expTeamOne < expTeamTwo ? <h1> Team Two Won!</h1> : null}
         {expTeamOne == expTeamTwo ? <h1> It is a draw!</h1> : null}
       </div>
-      <div className={expTeamOne > expTeamTwo ? "winner" : "loser"}>
+      <div className={expTeamOne > expTeamTwo ? "winner-up" : "loser-up"}>
         <Pokedex  setTest={(test) => setExpTeamOne(test)} />
       </div>
-      <div className={expTeamOne > expTeamTwo ? "loser" : "winner"} >
+      <div className={expTeamOne > expTeamTwo ? "loser-down" : "winner-down"} >
         <Pokedex setTest={(test) => setExpTeamTwo(test)} />
       </div>
       <button className="Pokegame-button" onClick={handleClick}>Play again!</button>
