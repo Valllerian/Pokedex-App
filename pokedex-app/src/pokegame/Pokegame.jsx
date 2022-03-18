@@ -7,6 +7,11 @@ const Pokegame = () => {
   const [expTeamTwo, setExpTeamTwo] = useState(0);
   console.log(expTeamOne);
   console.log(expTeamTwo);
+
+   function handleClick(e){
+    e.preventDefault();
+    window.location.reload()
+  }
   return (
     <div>
       <div>
@@ -20,6 +25,7 @@ const Pokegame = () => {
       <div>
         <Pokedex setTest={(test) => setExpTeamTwo(test)} />
       </div>
+      <button onClick={handleClick}>Play again!</button>
     </div>
   );
 };
