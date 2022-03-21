@@ -1,5 +1,8 @@
 .Pokedex {
+    /* display: inline; */
     display: flex;
+	
+	
 }
 .column {
 flex: 33.33%;

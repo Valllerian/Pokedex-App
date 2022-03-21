@@ -7,14 +7,14 @@ const Pokedex = (props) => {
 
   return (
     <div>
-      <div>
-        <div className="Pokedex">
-          <div className="column">
+      <div >
+        
+          <div className="Pokedex">
           {props.pokemon.map((card) => (
 						<Pokecard id={card.id} name={card.name} type={card.type} exp={card.base_experience} />
 					))}
           </div>
-        </div>
+        
       </div>
     </div>
   );
